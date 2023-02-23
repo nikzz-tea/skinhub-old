@@ -8,6 +8,7 @@ import './scss/app.scss';
 export type ItemType = {
   id: number;
   name: string;
+  subtitle: string;
   imageURL: string;
   downloadURL: string;
 };

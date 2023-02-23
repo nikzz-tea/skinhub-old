@@ -9,7 +9,10 @@ const Card: FC<ItemType> = (props) => {
         <div className="preview">
           <img src={props.imageURL} alt={props.name} />
         </div>
-        <div className="title">{props.name}</div>
+        <div className="title">
+          {props.name}
+          <span className="subtitle">{props.subtitle}</span>
+        </div>
       </div>
     </a>
   );
