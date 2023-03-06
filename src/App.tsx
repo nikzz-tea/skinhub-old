@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useQuery } from 'react-query';
 import Header from './components/Header';
 import Card from './components/Card';
 
 import './scss/app.scss';
+import Loading from './components/Loading';
 
 export type ItemType = {
   id: number;
@@ -13,23 +15,23 @@ export type ItemType = {
   downloadURL: string;
 };
 
-function App() {
-  const [items, setItems] = useState<ItemType[]>();
-  const fetchItems = async () => {
-    const { data } = await axios.get(
-      'https://6354195ee64783fa827f4417.mockapi.io/skins?sortBy=name',
-    );
-    setItems(data);
-  };
+async function fetchItems() {
+  return (await axios.get('https://6354195ee64783fa827f4417.mockapi.io/skins?sortBy=name')).data;
+}
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+function App() {
+  const { data, isLoading } = useQuery('skins', fetchItems);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="App">
       <Header />
-      <div className="container">{items && items.map((obj) => <Card key={obj.id} {...obj} />)}</div>
+      <div className="container">
+        {data && data.map((obj: ItemType) => <Card key={obj.id} {...obj} />)}
+      </div>
     </div>
   );
 }
