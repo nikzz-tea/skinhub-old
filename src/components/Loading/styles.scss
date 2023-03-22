@@ -1,7 +1,10 @@
+@import '../../scss/variables';
+
 .loading {
   height: 50vh;
   font-size: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--header-color-default);
 }

@@ -1,8 +1,7 @@
-$card-width: 420px;
-$border-radius: 6px;
+@import '../../scss/variables';
 
 .card {
-  background-color: #eeeeee;
+  background-color: var(--card-bg-default);
   width: $card-width;
   margin: 20px 10px;
   border-radius: $border-radius;
@@ -33,13 +32,13 @@ $border-radius: 6px;
 
 .title {
   font-size: 26px;
-  color: #333333;
+  color: var(--card-title-color-default);
   padding: 3px 4px 6px 4px;
 }
 
 .subtitle {
   font-size: 22px;
   font-weight: 300;
-  color: #a1a1a1;
+  color: var(--card-subtitle-color-default);
   margin-left: 8px;
 }

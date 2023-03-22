@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
-
-$bgcolor: #cccccc;
-$font: 'Ubuntu', sans-serif;
+@import './variables';
 
 * {
   margin: 0;
@@ -11,11 +9,11 @@ $font: 'Ubuntu', sans-serif;
 }
 
 body {
-  background-color: $bgcolor;
+  background-color: var(--body-bg-default);
+  transition: 0.2s;
 }
 
 .container {
-  // background-color: gray;
   width: 75%;
   margin: 0 auto;
   display: flex;

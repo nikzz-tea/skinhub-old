@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
+
 import Header from './components/Header';
 import Card from './components/Card';
+import Loading from './components/Loading';
 
 import './scss/app.scss';
-import Loading from './components/Loading';
 
 export type ItemType = {
   id: number;
