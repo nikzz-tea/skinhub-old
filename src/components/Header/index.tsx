@@ -1,4 +1,6 @@
 import { FC, useEffect, useState } from 'react';
+import { RiMoonLine, RiSunLine } from 'react-icons/ri';
+
 import './styles.scss';
 
 const components = [
@@ -35,7 +37,13 @@ const Header: FC = () => {
   return (
     <header>
       <h1>nikzz Skinhub</h1>
-      <h3 onClick={changeTheme}>(click to change theme)</h3>
+      <div className="icon">
+        {theme === 'light' ? (
+          <RiMoonLine onClick={changeTheme} size="50px" />
+        ) : (
+          <RiSunLine onClick={changeTheme} size="50px" />
+        )}
+      </div>
     </header>
   );
 };

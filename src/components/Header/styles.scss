@@ -1,10 +1,11 @@
 @import '../../scss/variables';
 
 header {
-  width: 100%;
+  position: relative;
+  width: 75%;
   height: 14vh;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -20,4 +21,31 @@ h3 {
   font-size: 22px;
   font-weight: 400;
   color: var(--card-subtitle-color-default);
+}
+
+.icon {
+  position: absolute;
+  right: 50px;
+  cursor: pointer;
+  svg {
+    color: var(--card-title-color-default);
+  }
+}
+
+@media (max-width: 660px) {
+  header {
+    position: static;
+    width: 100%;
+  }
+
+  .icon {
+    position: fixed;
+    right: 6vw;
+    bottom: 5vh;
+    background-color: var(--body-bg-default);
+    padding: 5px;
+    border-radius: $border-radius;
+    box-shadow: 2px 2px 15px #00000070;
+    z-index: 10;
+  }
 }
