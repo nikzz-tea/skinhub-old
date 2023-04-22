@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './styles.scss';
-import { ItemType } from '../../App';
+import { ItemType } from '../../models';
 
 const Card: FC<ItemType> = (props) => {
   return (

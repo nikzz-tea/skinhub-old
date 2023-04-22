@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useQuery } from 'react-query';
 
 import Header from './components/Header';
@@ -6,21 +5,10 @@ import Card from './components/Card';
 import Loading from './components/Loading';
 
 import './scss/app.scss';
-
-export type ItemType = {
-  id: number;
-  name: string;
-  subtitle: string;
-  imageURL: string;
-  downloadURL: string;
-};
-
-async function fetchItems() {
-  return (await axios.get('https://6354195ee64783fa827f4417.mockapi.io/skins?sortBy=name')).data;
-}
+import { skinsService } from './services/skins.service';
 
 function App() {
-  const { data, isLoading } = useQuery('skins', fetchItems);
+  const { data, isLoading } = useQuery('skins', skinsService.getAll);
 
   if (isLoading) {
     return <Loading />;
@@ -29,9 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="container">
-        {data && data.map((obj: ItemType) => <Card key={obj.id} {...obj} />)}
-      </div>
+      <div className="container">{data && data.map((obj) => <Card key={obj.id} {...obj} />)}</div>
     </div>
   );
 }
