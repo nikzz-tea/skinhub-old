@@ -11,7 +11,7 @@ const Card: FC<ItemType> = (props) => {
         </div>
         <div className="title">
           {props.name}
-          <span className="subtitle">{props.subtitle}</span>
+          {props.subtitle && <span className="subtitle">{props.subtitle}</span>}
         </div>
       </div>
     </a>
